@@ -1,0 +1,29 @@
+App                          General page wrapper
+	state=logged in user
+
+	Home                   Show uses that have not logged in signup and log in buttons
+							Or a welcome page for logged in users
+		no props or state
+
+	LoginForm            Allows user to log in
+		state=formData           username, password
+		props=LogInUser()
+
+	SignUpForm          Allows users to sign up
+		state=formData           username, password, firstname, lastname, email
+		props=RegisterUser()
+
+	NavBar				Shows login/signup links or other links for logged in users
+
+	SearchPage  		Shows lists of Companies or jobs with search input
+		props=type
+
+	SearchResult		Shows a card for a company or a jobs
+		props=type
+
+	ProfileForm			Shows a form allowing user to edit their profile
+		state=formData           username, firstname, lastname, email
+		props=EditUser()
+
+
+	
