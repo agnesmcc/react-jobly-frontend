@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const SearchPage = () => {
+const SearchPage = ({ results }) => {
     const [search, setSearch] = useState("");
 
     const handleSubmit = (e) => {
@@ -17,6 +17,12 @@ const SearchPage = () => {
                 value={search} 
                 onChange={(e) => setSearch(e.target.value)}/>
             <button type="submit">Search</button>
+            {results.map((result) => (
+                <div>
+                    {result.name}
+                    {result.title}
+                </div> 
+            ))}
         </form>
         </>
     );
