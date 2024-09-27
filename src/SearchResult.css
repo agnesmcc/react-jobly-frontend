@@ -1,0 +1,7 @@
+.searchresult {
+    border: 1px solid black;
+    width: 75vw;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
