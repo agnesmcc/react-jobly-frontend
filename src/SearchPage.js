@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import SearchResult from "./SearchResult";
+import "./SearchPage.css"
 
 const SearchPage = ({ results }) => {
     const [search, setSearch] = useState("");
@@ -10,21 +12,22 @@ const SearchPage = ({ results }) => {
     }
 
     return (
-        <>
+        <div className="d-flex justify-content-center">
         <form onSubmit={handleSubmit}>
-            <input type="text" 
-                placeholder="Search..." 
-                value={search} 
-                onChange={(e) => setSearch(e.target.value)}/>
-            <button type="submit">Search</button>
+            <div className="input-group mx-auto searchpage-input">
+                <input type="text" className="form-control"
+                    placeholder="Search..." 
+                    value={search} 
+                    onChange={(e) => setSearch(e.target.value)}/>
+                <button type="submit" className="btn btn-primary">Search</button>
+            </div>
             {results.map((result) => (
                 <div>
-                    {result.name}
-                    {result.title}
+                    <SearchResult result={result} />
                 </div> 
             ))}
         </form>
-        </>
+        </div>
     );
 };
 
