@@ -1,13 +1,18 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
 import "./SearchPage.css"
 
-const SearchPage = ({ results }) => {
+const SearchPage = ({ results, setResults }) => {
     const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        setResults(search);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(search);
+        setResults(search);
         setSearch("");
     }
 
@@ -21,10 +26,8 @@ const SearchPage = ({ results }) => {
                     onChange={(e) => setSearch(e.target.value)}/>
                 <button type="submit" className="btn btn-primary">Search</button>
             </div>
-            {results.map((result) => (
-                <div>
-                    <SearchResult result={result} />
-                </div> 
+            { results.map((result) => (
+                <SearchResult key={result.handle} result={result} />
             ))}
         </form>
         </div>
