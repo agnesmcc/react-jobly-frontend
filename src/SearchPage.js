@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
-import SearchResult from "./SearchResult";
+import SearchResult from "./CompanyResult";
 import "./SearchPage.css"
+import CompanyResult from "./CompanyResult";
 
 const SearchPage = ({ results, setResults }) => {
     const [search, setSearch] = useState("");
@@ -27,7 +28,7 @@ const SearchPage = ({ results, setResults }) => {
                 <button type="submit" className="btn btn-primary">Search</button>
             </div>
             { results.map((result) => (
-                <SearchResult key={result.handle} result={result} />
+                <CompanyResult key={result.handle} result={result} />
             ))}
         </form>
         </div>

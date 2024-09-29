@@ -1,7 +1,7 @@
 import {React, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
-const DetailPage = ({items, loading}) => {
+const CompanyDetail = ({items, loading}) => {
     const {handle} = useParams();
     
     const item = items.find((item) => item.handle === handle);  
@@ -20,4 +20,4 @@ const DetailPage = ({items, loading}) => {
     );
 };
 
-export default DetailPage;
+export default CompanyDetail;

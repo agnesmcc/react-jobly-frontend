@@ -1,11 +1,11 @@
 import { React } from "react";
-import "./SearchResult.css";
+import "./CompanyResult.css";
 import { Link } from "react-router-dom";
 
-const SearchResult = ({ result }) => {
+const CompanyResult = ({ result }) => {
     return (
         <Link to={`/companies/${result.handle}`}>
-        <div className="searchresult">
+        <div className="companyresult">
             <h3>{result.name}
             {result.title}</h3>
             <div>
@@ -16,4 +16,4 @@ const SearchResult = ({ result }) => {
     );
 };
 
-export default SearchResult;
+export default CompanyResult;

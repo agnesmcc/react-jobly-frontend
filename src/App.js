@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import SearchPage from './SearchPage';
-import DetailPage from './DetailPage';
+import CompanyDetail from './CompanyDetail';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
 import ProfilePage from './ProfilePage';
@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/companies" element={<SearchPage key="companies" results={companies} setResults={getCompanies}/>} />
-          <Route path="/companies/:handle" element={<DetailPage items={companies} loading={loading}/>} />
+          <Route path="/companies/:handle" element={<CompanyDetail items={companies} loading={loading}/>} />
           <Route path="/jobs" element={<SearchPage key="jobs" results={jobs} setResults={getJobs}/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
