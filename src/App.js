@@ -13,6 +13,7 @@ import JoblyApi from "./Api";
 function App() {
   const [companies, setCompanies] = useState([]);
   const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getCompanies = async (handle) => {
     let res = await JoblyApi.getCompanies(handle);
@@ -29,6 +30,7 @@ function App() {
   useEffect(() => {
     getCompanies();
     getJobs();
+    setLoading(false);
   }, []);
 
   return (
@@ -38,7 +40,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/companies" element={<SearchPage key="companies" results={companies} setResults={getCompanies}/>} />
-          <Route path="/companies/:handle" element={<DetailPage />} />
+          <Route path="/companies/:handle" element={<DetailPage items={companies} loading={loading}/>} />
           <Route path="/jobs" element={<SearchPage key="jobs" results={jobs} setResults={getJobs}/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
