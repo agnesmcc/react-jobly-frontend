@@ -6,8 +6,7 @@ const CompanyResult = ({ result }) => {
     return (
         <Link to={`/companies/${result.handle}`}>
         <div className="companyresult">
-            <h3>{result.name}
-            {result.title}</h3>
+            <h3>{result.name}</h3>
             <div>
                 {result.description}
             </div>

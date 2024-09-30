@@ -1,5 +1,6 @@
 import {React, useEffect} from "react";
 import { useParams } from "react-router-dom";
+import './CompanyDetail.css';
 
 const CompanyDetail = ({items, loading}) => {
     const {handle} = useParams();
@@ -12,10 +13,10 @@ const CompanyDetail = ({items, loading}) => {
     }
 
     return (
-        <div>
-            <h1>{item.name}</h1>
-            {item.description}
-            {item.numEmployees}
+        <div className="companydetail">
+            <h1 style={{textAlign: 'center'}}>{item.name}</h1>
+            <p><b>About:</b> {item.description}</p>
+            <p><b>Employees:</b> {item.numEmployees}</p>
         </div>
     );
 };
