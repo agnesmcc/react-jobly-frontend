@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useCallback } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
@@ -9,10 +9,11 @@ import SignupPage from './SignupPage';
 import ProfilePage from './ProfilePage';
 import NavBar from './NavBar';
 import JoblyApi from "./Api";
+import { JobsContext } from './JobsContext';
 
 function App() {
   const [companies, setCompanies] = useState([]);
-  const [jobs, setJobs] = useState([]);
+  const { jobs, setJobs } = useContext(JobsContext);
   const [loading, setLoading] = useState(true);
 
   const getCompanies = async (handle) => {
@@ -39,9 +40,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/companies" element={<SearchPage key="companies" results={companies} setResults={getCompanies}/>} />
+          <Route path="/companies" element={<SearchPage key="companies" type="companies" results={companies} setResults={getCompanies}/>} />
           <Route path="/companies/:handle" element={<CompanyDetail items={companies} loading={loading}/>} />
-          <Route path="/jobs" element={<SearchPage key="jobs" results={jobs} setResults={getJobs}/>} />
+          <Route path="/jobs" element={<SearchPage key="jobs" type="jobs" results={jobs} setResults={getJobs}/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
