@@ -7,7 +7,7 @@ const JobResult = ({ result }) => {
             <h3>{result.title}</h3>
             <div>
                 <p><b>Salary:</b> {result.salary}</p>
-                <p><b>Equity:</b> {result.equity}</p>
+                <p><b>Equity:</b> {result.equity ? `${result.equity} %` : "None"}</p>
                 <p><b>Handle:</b> {result.companyHandle}</p>
             </div>
         </div>
