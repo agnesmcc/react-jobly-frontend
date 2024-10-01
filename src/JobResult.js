@@ -6,9 +6,9 @@ const JobResult = ({ result }) => {
         <div className="jobresult">
             <h3>{result.title}</h3>
             <div>
-                <p><b>Salary:</b> {result.salary}</p>
+                <p><b>Salary:</b> {result.salary ? `$${result.salary.toLocaleString()}` : "None specified"}</p>
                 <p><b>Equity:</b> {result.equity ? `${result.equity} %` : "None"}</p>
-                <p><b>Handle:</b> {result.companyHandle}</p>
+                {/* <p><b>Handle:</b> {result.companyHandle}</p> */}
             </div>
         </div>
     );

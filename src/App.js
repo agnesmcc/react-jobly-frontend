@@ -18,13 +18,13 @@ function App() {
 
   const getCompanies = async (handle) => {
     let res = await JoblyApi.getCompanies(handle);
-    console.log(res);
+    // console.log(res);
     setCompanies(res);
   }
 
   const getJobs = async () => {
     let res = await JoblyApi.getJobs();
-    console.log(res);
+    // console.log(res);
     setJobs(res);
   }
 
