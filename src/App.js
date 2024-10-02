@@ -15,6 +15,7 @@ function App() {
   const [companies, setCompanies] = useState([]);
   const { jobs, setJobs } = useContext(JobsContext);
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(null);
 
   const getCompanies = async (handle) => {
     let res = await JoblyApi.getCompanies(handle);
@@ -43,7 +44,7 @@ function App() {
           <Route path="/companies" element={<SearchPage key="companies" type="companies" results={companies} setResults={getCompanies}/>} />
           <Route path="/companies/:handle" element={<CompanyDetail items={companies} loading={loading}/>} />
           <Route path="/jobs" element={<SearchPage key="jobs" type="jobs" results={jobs} setResults={getJobs}/>} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage setToken={setToken}/>} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<div>Page not found</div>} />
