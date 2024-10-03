@@ -40,6 +40,8 @@ function App() {
   useEffect(() => {
     if (token) {
       getUser();
+    } else {
+      setUser(null);
     }
   }, [token]);
 
@@ -52,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
+        <NavBar setToken={setToken}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/companies" element={<SearchPage key="companies" type="companies" results={companies} setResults={getCompanies}/>} />
