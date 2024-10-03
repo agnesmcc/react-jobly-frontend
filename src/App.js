@@ -10,10 +10,13 @@ import ProfilePage from './ProfilePage';
 import NavBar from './NavBar';
 import JoblyApi from "./Api";
 import { JobsContext } from './JobsContext';
+import { UserContext } from "./UserContext";
+import { jwtDecode } from "jwt-decode";
 
 function App() {
   const [companies, setCompanies] = useState([]);
   const { jobs, setJobs } = useContext(JobsContext);
+  const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
 
@@ -28,6 +31,17 @@ function App() {
     // console.log(res);
     setJobs(res);
   }
+
+  const getUser = () => {
+    let user = jwtDecode(token);
+    setUser(user);
+  }
+
+  useEffect(() => {
+    if (token) {
+      getUser();
+    }
+  }, [token]);
 
   useEffect(() => {
     getCompanies();

@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { JobsProvider } from './JobsContext';
+import { UserProvider } from './UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <JobsProvider>
+    <UserProvider>
       <App />
+    </UserProvider>
     </JobsProvider>
   </React.StrictMode>
 );
