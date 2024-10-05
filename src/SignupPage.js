@@ -7,8 +7,8 @@ const SignupPage = ({setToken}) => {
     const initialFormState = {
         username: "testuser", 
         password: "password",
-        firstname: "test",
-        lastname: "user",
+        firstName: "test",
+        lastName: "user",
         email: "test@me.com"
     };
     const [formData, setFormData] = useState(initialFormState);
@@ -23,7 +23,7 @@ const SignupPage = ({setToken}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = await JoblyApi.login(formData);
+        const token = await JoblyApi.register(formData);
         setToken(token);
         navigate("/");
     }
@@ -33,22 +33,22 @@ const SignupPage = ({setToken}) => {
         <h3 className="mb-3">Create an account!</h3>
         <form className="signuppage-form" onSubmit={handleSubmit}>
             <div className="form-group row mb-3">
-                <label htmlFor="firstname" className="col-sm-3 col-form-label">First Name</label>
+                <label htmlFor="firstName" className="col-sm-3 col-form-label">First Name</label>
                 <div className="col-sm-8"><input
                     className="form-control"
-                    type="firstname"
-                    name="firstname"
-                    value={formData.firstname}
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
                     onChange={handleChange}
                 /></div>
             </div>
             <div className="form-group row mb-3">
-                <label htmlFor="lastname" className="col-sm-3 col-form-label">Last Name</label>
+                <label htmlFor="lastName" className="col-sm-3 col-form-label">Last Name</label>
                 <div className="col-sm-8"><input
                     className="form-control"
-                    type="lastname"
-                    name="lastname"
-                    value={formData.lastname}
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
                     onChange={handleChange}
                 /></div>
             </div>
@@ -56,7 +56,7 @@ const SignupPage = ({setToken}) => {
                 <label htmlFor="email" className="col-sm-3 col-form-label">Email</label>
                 <div className="col-sm-8"><input
                     className="form-control"
-                    type="email"
+                    type="text"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
