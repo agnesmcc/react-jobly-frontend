@@ -40,6 +40,7 @@ function App() {
 
   useEffect(() => {
     if (token) {
+      JoblyApi.token = token;
       getUser();
     } else {
       setUser(null);

@@ -30,8 +30,38 @@ const SignupPage = ({setToken}) => {
 
     return (
         <>
-        <h3 className="mb-3">Sign up!</h3>
+        <h3 className="mb-3">Create an account!</h3>
         <form className="signuppage-form" onSubmit={handleSubmit}>
+            <div className="form-group row mb-3">
+                <label htmlFor="firstname" className="col-sm-3 col-form-label">First Name</label>
+                <div className="col-sm-8"><input
+                    className="form-control"
+                    type="firstname"
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                /></div>
+            </div>
+            <div className="form-group row mb-3">
+                <label htmlFor="lastname" className="col-sm-3 col-form-label">Last Name</label>
+                <div className="col-sm-8"><input
+                    className="form-control"
+                    type="lastname"
+                    name="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                /></div>
+            </div>
+            <div className="form-group row mb-3">
+                <label htmlFor="email" className="col-sm-3 col-form-label">Email</label>
+                <div className="col-sm-8"><input
+                    className="form-control"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                /></div>
+            </div>
             <div className="form-group row mb-3">
                 <label htmlFor="username" className="col-sm-3 col-form-label">Username</label>
                 <div className="col-sm-8"><input
@@ -52,7 +82,7 @@ const SignupPage = ({setToken}) => {
                     onChange={handleChange}
                 /></div>
             </div>
-            <button type="submit" className="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary">Sign up</button>
         </form>
         </>
     );
