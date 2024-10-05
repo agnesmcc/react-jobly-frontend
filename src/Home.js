@@ -3,7 +3,7 @@ import './Home.css';
 import { UserContext } from "./UserContext";
 
 const Home = () => {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     return (
         <div className="home">

@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useContext } from "react";
+import { React, useState, useEffect, useContext, useCallback } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
@@ -16,9 +16,10 @@ import { jwtDecode } from "jwt-decode";
 function App() {
   const [companies, setCompanies] = useState([]);
   const { jobs, setJobs } = useContext(JobsContext);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
+
 
   const getCompanies = async (handle) => {
     let res = await JoblyApi.getCompanies(handle);
@@ -26,16 +27,16 @@ function App() {
     setCompanies(res);
   }
 
-  const getJobs = async () => {
+  const getJobs = useCallback(async () => {
     let res = await JoblyApi.getJobs();
     // console.log(res);
     setJobs(res);
-  }
+  }, [setJobs]);
 
-  const getUser = () => {
+  const getUser = useCallback(() => {
     let user = jwtDecode(token);
     setUser(user);
-  }
+  }, [token, setUser]);
 
   useEffect(() => {
     if (token) {
@@ -43,13 +44,13 @@ function App() {
     } else {
       setUser(null);
     }
-  }, [token]);
+  }, [token, getUser, setUser]);
 
   useEffect(() => {
     getCompanies();
     getJobs();
     setLoading(false);
-  }, []);
+  }, [getJobs]);
 
   return (
     <div className="App">
@@ -61,7 +62,7 @@ function App() {
           <Route path="/companies/:handle" element={<CompanyDetail items={companies} loading={loading}/>} />
           <Route path="/jobs" element={<SearchPage key="jobs" type="jobs" results={jobs} setResults={getJobs}/>} />
           <Route path="/login" element={<LoginPage setToken={setToken}/>} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/signup" element={<SignupPage setToken={setToken}/>} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
