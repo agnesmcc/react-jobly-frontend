@@ -12,14 +12,14 @@ import JoblyApi from "./Api";
 import { JobsContext } from './JobsContext';
 import { UserContext } from "./UserContext";
 import { jwtDecode } from "jwt-decode";
+import useLocalStorage from "./useLocalStoarge";
 
 function App() {
   const [companies, setCompanies] = useState([]);
   const { jobs, setJobs } = useContext(JobsContext);
   const { setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState(null);
-
+  const [token, setToken] = useLocalStorage('token', null);
 
   const getCompanies = async (handle) => {
     let res = await JoblyApi.getCompanies(handle);
