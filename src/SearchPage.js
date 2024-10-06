@@ -1,14 +1,23 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
+import { Navigate } from "react-router-dom";
 import "./SearchPage.css"
 import CompanyResult from "./CompanyResult";
 import JobResult from "./JobResult";
+import { UserContext } from "./UserContext";
 
 const SearchPage = ({ type, results, setResults }) => {
     const [search, setSearch] = useState("");
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         setResults(search);
     }, []);
+
+    if (!user) {
+        return (
+            <Navigate to="/login" replace />
+        );
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
