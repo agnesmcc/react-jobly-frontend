@@ -4,14 +4,14 @@ import JoblyApi from "./Api";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUserState] = useState([]);
+  const [user, setUserState] = useState(null);
 
   const setUser = async (newUser) => {
-    if (newUser.username) {
+    if (newUser && newUser.username) {
       const userData = await JoblyApi.getUser(newUser.username);
       setUserState({ ...newUser, ...userData });
     } else {
-      setUserState(newUser);
+      setUserState(null);
     }
   };
 
