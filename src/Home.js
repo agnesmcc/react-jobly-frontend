@@ -10,7 +10,7 @@ const Home = () => {
             <h1>Jobly</h1>
             <p>Look for a job. Get a job.</p>
             { user &&
-            <p>Welcome back, {user.username}!</p>}
+            <p>Welcome back, {user.firstName} {user.lastName}!</p>}
         </div>
     );
 };
