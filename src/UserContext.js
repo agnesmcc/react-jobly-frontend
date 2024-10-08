@@ -15,8 +15,15 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const refreshUser = async () => {
+    if (user) {
+      const userData = await JoblyApi.getUser(user.username);
+      setUserState({ ...user, ...userData });
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, refreshUser }}>
       {children}
     </UserContext.Provider>
   );
