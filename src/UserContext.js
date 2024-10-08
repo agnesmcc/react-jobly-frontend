@@ -7,11 +7,11 @@ export const UserProvider = ({ children }) => {
   const [user, setUserState] = useState(null);
 
   const setUser = async (newUser) => {
-    if (newUser && newUser.username) {
+    if (newUser === null) {
+      setUserState(null);
+    } else if (!user || (newUser && newUser.username !== user.username)) {
       const userData = await JoblyApi.getUser(newUser.username);
       setUserState({ ...newUser, ...userData });
-    } else {
-      setUserState(null);
     }
   };
 

@@ -5,7 +5,7 @@ import "./NavBar.css";
 import { UserContext } from "./UserContext";
 
 const NavBar = ({setToken}) => {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     return (
         <Navbar expand="md">

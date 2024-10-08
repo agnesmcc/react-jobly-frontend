@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import './ProfilePage.css';
 import {UserContext} from "./UserContext";
 
-const ProfilePage = ({setToken}) => {
-    const {user, setUser} = useContext(UserContext);
+const ProfilePage = () => {
+    const {user} = useContext(UserContext);
     const initialFormState = {
         password: "password",
         firstName: "test",
