@@ -27,8 +27,8 @@ function App() {
     setCompanies(res);
   }
 
-  const getJobs = useCallback(async () => {
-    let res = await JoblyApi.getJobs();
+  const getJobs = useCallback(async (title) => {
+    let res = await JoblyApi.getJobs(title);
     // console.log(res);
     setJobs(res);
   }, [setJobs]);
