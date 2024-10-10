@@ -5,7 +5,7 @@ import './ProfilePage.css';
 import {UserContext} from "./UserContext";
 
 const ProfilePage = () => {
-    const {user} = useContext(UserContext);
+    const { user, refreshUser } = useContext(UserContext);
     const initialFormState = {
         password: "password",
         firstName: "test",
@@ -26,6 +26,7 @@ const ProfilePage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await JoblyApi.updateUser(user.username, formData);
+        refreshUser();
         navigate("/");
     }
 

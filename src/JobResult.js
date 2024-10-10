@@ -1,4 +1,4 @@
-import { React, useContext, useEffect } from "react";
+import { React, useContext } from "react";
 import "./JobResult.css";
 import { UserContext } from "./UserContext";
 import JoblyApi from "./Api";
