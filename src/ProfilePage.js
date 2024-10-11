@@ -64,7 +64,7 @@ const ProfilePage = () => {
                     onChange={handleChange}
                 /></div>
             </div>
-            <p>Enter your current password:</p>
+            <p>Enter a new password:</p>
             <div className="form-group row mb-3">
                 <label htmlFor="password" className="col-sm-3 col-form-label">Password</label>
                 <div className="col-sm-8"><input

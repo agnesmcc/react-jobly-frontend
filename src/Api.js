@@ -79,6 +79,13 @@ class JoblyApi {
   /** Update user. */
 
   static async updateUser(username, data) {
+    // Remove any empty fields from the update data, so that 
+    // we don't erase any of the user's existing info.
+    Object.keys(data).forEach(key => {
+      if (!data[key].trim()) {
+        delete data[key];
+      }
+    });
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   } 
