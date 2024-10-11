@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useContext, useCallback } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import SearchPage from './SearchPage';
@@ -55,7 +55,6 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
         <NavBar setToken={setToken}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -67,7 +66,6 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }

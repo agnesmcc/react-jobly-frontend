@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { JobsProvider } from './JobsContext';
 import { UserProvider } from './UserContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <JobsProvider>
-    <UserProvider>
-      <App />
-    </UserProvider>
-    </JobsProvider>
+    <BrowserRouter>
+      <JobsProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+      </JobsProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
