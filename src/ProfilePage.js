@@ -7,10 +7,10 @@ import {UserContext} from "./UserContext";
 const ProfilePage = () => {
     const { user, refreshUser } = useContext(UserContext);
     const initialFormState = {
-        password: "password",
-        firstName: "test",
-        lastName: "user",
-        email: "test@me.com"
+        password: "",
+        firstName: "",
+        lastName: "",
+        email: ""
     };
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './LoginPage.css';
 
 const LoginPage = ({setToken}) => {
-    const initialFormState = {username: "testuser", password: "password"};
+    const initialFormState = {username: "", password: ""};
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
 

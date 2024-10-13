@@ -5,11 +5,11 @@ import './SignupPage.css';
 
 const SignupPage = ({setToken}) => {
     const initialFormState = {
-        username: "testuser", 
-        password: "password",
-        firstName: "test",
-        lastName: "user",
-        email: "test@me.com"
+        username: "", 
+        password: "",
+        firstName: "",
+        lastName: "",
+        email: ""
     };
     const [formData, setFormData] = useState(initialFormState);
     const navigate = useNavigate();
